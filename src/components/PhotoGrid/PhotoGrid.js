@@ -26,14 +26,12 @@ export const PhotoGrid = (props) => {
   }, [fetchPhotos, slug]);
 
   return (
-    <div>
-      <ul>
+    <div className="grid-photo-wrapper">
         {photos.length && photos.map((photo) => 
-          <div key={photo.id} className="grid-photo-wrapper">
+          <div key={photo.id} className="grid-photo">
             <img key={photo.id} src={photo.urls.small} alt={photo.description} />
           </div>
         )}
-      </ul>
     </div>
   );
 };
