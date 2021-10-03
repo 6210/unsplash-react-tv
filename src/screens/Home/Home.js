@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { TopicsMenu } from '../../components/TopicsMenu/TopicsMenu';
 import { PhotoGrid } from '../../components/PhotoGrid/PhotoGrid';
+import { Loader } from '../../components/Loader';
 import { api } from '../../api/api';
 import './Home.css';
 
@@ -47,13 +48,9 @@ export const Home = () => {
     setOpenNav(false)
   };
 
-  console.log(`Home selectedSlug: ${selectedSlug}`);
-
-  return (
-    <div>
-
-      <div className="home-wrapper">
-
+  const renderContent = () => {
+    return (
+      <>
         {openModal && 
           <TopicsMenu 
             topics={topics}
@@ -61,15 +58,27 @@ export const Home = () => {
             onTopicSelected={onTopicSelected} 
           />
         }
-
         <PhotoGrid 
           topics={topics}
           closeModal={setOpenNav}
           slug={selectedSlug} 
           title={selectedTitle}
         />
+      </>
+    );
+  }
 
-      </div>
+  const renderLoading = () => {
+    return (
+      <Loader />
+    )
+  }
+
+  console.log(`Home selectedSlug: ${selectedSlug}`);
+
+  return (
+    <div className="HomeWrapper">
+      {topics.length === 0 ? renderLoading() : renderContent()}
     </div>
   );
 };

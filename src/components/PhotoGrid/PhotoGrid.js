@@ -3,7 +3,7 @@ import { api } from '../../api/api';
 import { GridPhoto } from './GridPhoto';
 
 export const PhotoGrid = ( props ) => {
-  const { slug, title, closeModal  } = props;
+  const { slug, title, closeModal } = props;
 
   const [photosData, setPhotosData] = useState({
     topicIdOrSlug: slug,
@@ -32,8 +32,11 @@ export const PhotoGrid = ( props ) => {
   return (
     <div className="grid-photo-wrapper">
         <h3>{title}</h3>
+
+        {/* If open  */}
         <button onClick={() => closeModal(true)}> Browse Topics </button>
-        <button onClick={() => closeModal(false)}> View Photos </button>
+        {/* hide this */}
+
         {photos.length && photos.map((photo) => 
           <GridPhoto key={photo.id} photo={photo}/>
         )}

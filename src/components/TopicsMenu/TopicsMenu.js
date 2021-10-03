@@ -17,5 +17,5 @@ export const TopicsMenu = (props) => {
         </div>)
       }
     </div>
-  );
+  )
 };
