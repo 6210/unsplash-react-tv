@@ -28,7 +28,11 @@ export const PhotoGrid = (props) => {
   return (
     <div>
       <ul>
-        {photos.length && photos.map((photo) => <img key={photo.id} src={photo.urls.thumb} alt={photo.description} />)}
+        {photos.length && photos.map((photo) => 
+          <div key={photo.id} className="grid-photo-wrapper">
+            <img key={photo.id} src={photo.urls.small} alt={photo.description} />
+          </div>
+        )}
       </ul>
     </div>
   );

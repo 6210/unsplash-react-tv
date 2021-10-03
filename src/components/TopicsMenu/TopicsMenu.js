@@ -30,8 +30,8 @@ export const TopicsMenu = (props) => {
   return (
     <div>
       <ul>
-        {topics.length && 
-          topics.map((topic) => <button key={topic.id} onClick={() => onTopicSelected(topic)}>{topic.title}</button>)
+        {topics.length && topics.map((topic) => 
+          <div key={topic.id} onClick={() => onTopicSelected(topic)}>{topic.title}</div>)
         }
       </ul>
     </div>

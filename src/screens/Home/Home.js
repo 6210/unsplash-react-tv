@@ -16,8 +16,12 @@ export const Home = () => {
 
   return (
     <div className="Home">
-      <TopicsMenu onTopicSelected={onTopicSelected} />
-      <PhotoGrid slug={selectedSlug} />
+      <div>
+        <TopicsMenu onTopicSelected={onTopicSelected} />
+      </div>
+      <div>
+        <PhotoGrid slug={selectedSlug} />
+      </div>
     </div>
   );
 };
