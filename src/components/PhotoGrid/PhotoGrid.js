@@ -1,8 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { api } from '../../api/api';
+import { GridPhoto } from './GridPhoto';
 
-export const PhotoGrid = (props) => {
-  const { slug } = props;
+export const PhotoGrid = ( props ) => {
+  const { slug, title, closeModal  } = props;
 
   const [photosData, setPhotosData] = useState({
     topicIdOrSlug: slug,
@@ -11,7 +12,10 @@ export const PhotoGrid = (props) => {
 
   const { photos } = photosData;
 
-  const fetchPhotos = useCallback((slug) => {
+  const fetchPhotos = useCallback((slug ) => {
+    // !!boolean + && Logical/OR operator
+    // useEffect
+    // useCallback
     !!slug && api.topics.getPhotos({ topicIdOrSlug: slug })
       .then(data => {
         if (data) {
@@ -27,10 +31,11 @@ export const PhotoGrid = (props) => {
 
   return (
     <div className="grid-photo-wrapper">
+        <h3>{title}</h3>
+        <button onClick={() => closeModal(true)}> Browse Topics </button>
+        <button onClick={() => closeModal(false)}> View Photos </button>
         {photos.length && photos.map((photo) => 
-          <div key={photo.id} className="grid-photo">
-            <img key={photo.id} src={photo.urls.small} alt={photo.description} />
-          </div>
+          <GridPhoto key={photo.id} photo={photo}/>
         )}
     </div>
   );
