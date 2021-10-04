@@ -45,7 +45,7 @@ export const Home = () => {
   const onTopicSelected = (topic) => {
     setSelectedSlug(topic.slug);
     setSelectedTitle(topic.title);
-    setOpenNav(false)
+    setOpenNav(false);
   };
 
   const renderContent = () => {
@@ -54,15 +54,16 @@ export const Home = () => {
         {openModal && 
           <TopicsMenu 
             topics={topics}
-            closeModal={setOpenNav} 
+            closeModal={setOpenNav}
+            modalButton={setOpenNav}
             onTopicSelected={onTopicSelected} 
           />
         }
         <PhotoGrid 
-          topics={topics}
-          closeModal={setOpenNav}
-          slug={selectedSlug} 
-          title={selectedTitle}
+            topics={topics}
+            closeModal={setOpenNav}
+            slug={selectedSlug} 
+            title={selectedTitle}
         />
       </>
     );
