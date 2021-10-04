@@ -6,8 +6,8 @@ import { Loader } from '../../components/Loader';
 import { api } from '../../api/api';
 import './Home.css';
 
-export const Home = (props) => {
-
+export const Home = () => {
+  
   const [topicsData, setTopicsData] = useState({
     page: 1,
     topics: [],
@@ -15,7 +15,8 @@ export const Home = (props) => {
 
   const [selectedSlug, setSelectedSlug] = useState(undefined);
   const [selectedTitle, setSelectedTitle] = useState(undefined);
-  const [openModal, setOpenNav] = useState(true)
+  const [openModal, setOpenNav] = useState(true);
+
   const { topics } = topicsData;
 
   const fetchTopics = useCallback((page) => {
@@ -41,8 +42,6 @@ export const Home = (props) => {
     }
   },[topicsData, selectedSlug]);
 
-  console.log(`HOME RENDERING`);
-
   const onTopicSelected = (topic) => {
     setSelectedSlug(topic.slug);
     setSelectedTitle(topic.title);
@@ -56,7 +55,6 @@ export const Home = (props) => {
           <TopicsMenu 
             topics={topics}
             closeModal={setOpenNav}
-            modalButton={setOpenNav}
             onTopicSelected={onTopicSelected} 
           />
         }
@@ -80,8 +78,6 @@ export const Home = (props) => {
       <Loader />
     )
   }
-
-  console.log(`Home selectedSlug: ${selectedSlug}`);
 
   return (
     <div className="HomeWrapper">
