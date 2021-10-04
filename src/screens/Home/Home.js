@@ -79,8 +79,6 @@ export const Home = () => {
     )
   }
 
-  console.log(`Home selectedSlug: ${selectedSlug}`);
-
   return (
     <div className="HomeWrapper">
       {topics.length === 0 ? renderLoading() : renderContent()}
