@@ -3,7 +3,7 @@ import { api } from '../../api/api';
 import { GridPhoto } from './Photo';
 
 export const PhotoGrid = ( props ) => {
-  const { slug, title, closeModal  } = props;
+  const { slug, title, closeModal } = props;
 
   const [photosData, setPhotosData] = useState({
     topicIdOrSlug: slug,
@@ -13,9 +13,6 @@ export const PhotoGrid = ( props ) => {
   const { photos } = photosData;
 
   const fetchPhotos = useCallback((slug ) => {
-    // !!boolean + && Logical/OR operator
-    // useEffect
-    // useCallback
     !!slug && api.topics.getPhotos({ topicIdOrSlug: slug })
       .then(data => {
         if (data) {
@@ -30,14 +27,11 @@ export const PhotoGrid = ( props ) => {
   }, [fetchPhotos, slug]);
 
   return (
-
     <div className="TopicsPhotoList">
-        <div className="TopicTitle" onClick={() => closeModal(true)}>
-          <h3>{title}</h3>
-        </div>
-
+      <div className="TopicTitle" onClick={() => closeModal(true)}>
+        <h3>{title}</h3>
+      </div>
       <div className="PhotoGridWrapper">
-
           <div className="PhotoWrapper">
             {photos.length && photos.map((photo) => 
                 <GridPhoto key={photo.id} photo={photo}/>

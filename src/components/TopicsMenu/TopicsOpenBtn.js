@@ -4,7 +4,7 @@ export const TopicsOpenBtn = (props) => {
     const { closeModal  } = props;
 
     return (
-        <div className="offTopicVav">
+        <div className="offTopicNav">
             <button 
                 className="triggerMenu"
                 onClick={() => closeModal(true)}>

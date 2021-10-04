@@ -95,10 +95,6 @@ h3 {
   height: 100vh
 }
 
-.TopicTitle {
-  text-align: center
-}
-
 .TopicsMenuWrapper {
   display: flex;
   min-width: 300px;
@@ -112,9 +108,9 @@ h3 {
 }
 
 .TopicsMenuList {
-    z-index: 1200;
-    position: fixed;
-    height: 100vh
+  z-index: 1200;
+  position: fixed;
+  height: 100vh
 }
 
 .TopicsMenuItem {
@@ -130,9 +126,35 @@ h3 {
   position: relative
 }
 
+.TopicsMenuItem:hover {
+  background-color: #e69224;
+  transition: background-color 200ms ease-in-out
+}
+
+.TopicSelectImage {
+  overflow: hidden;
+  width: 130px;
+  object-fit: cover;
+  border-radius: 0 15px 15px 0;
+  object-position: center;
+  position: absolute;
+  right: 50px;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  opacity: 0;
+}
+
+.TopicsMenuItem:hover > .TopicSelectImage {
+  opacity: 1;
+  right: -130px;
+  transition: right 200ms ease-in-out
+}
+
 .PhotoContainer {
-  padding: 10px;
-  position: relative
+  padding-right: 10px;
+  position: relative;
+  margin-right: 40px;
 }
 
 .PhotoItem {
@@ -144,7 +166,7 @@ h3 {
   top: 7px;
   left: 10px;
   color: #fff;
-  background-color: transparent;
+  background-color: black;
   border: 1px solid white;
   padding: 7px;
   font-size: 20px;
@@ -155,57 +177,43 @@ h3 {
   position: relative
 }
 
-.TopicsPhotoList {
-  margin-left: 320px;
-}
-
 .TopicTitle {
   position: fixed;
   margin: 0;
   padding: 0;
   z-index: 1280;
   right: 10px;
-  top: 16px;
+  top: 7px;
+  text-align: center;
   font-size: 25px
 }
 
-.topicSelectImage {
-  overflow: hidden;
-  width: 130px;
-  object-fit: cover;
-  border-radius: 0 15px 15px 0;
-  object-position: center;
-  position: absolute;
-  right: -130px;
-  z-index: -1;
-  top: 0;
-  bottom: 0;
-  display: none;
+.TopicsMenuList + .TopicsPhotoList {
+  margin-left: 320px;
 }
-
-.TopicsMenuItem:hover > .topicSelectImage {
-  display: block;
-}
-
-/* .topicImage {
-  object-fit: contain;
-  width: 100%;
-  height: 100%;
-  opacity: 0.1;
-} */
 
 .TopicsMenuDisplay {
   position: absolute;
   color: white
 }
 
-/* centerMenu {
-  display: flex;
-  align-items: center
+.PhotoLinks {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
 }
 
-offTopicVav {
-  position: fixed;
-  top: 10px;
-  left: 10px
-} */
+.PhotoLogo {
+  height: 75px;
+}
+
+.PhotoUnSplashLogo:hover > .PhotoLogo {
+  height: 85px;
+  transition: all 200ms linear;
+}
+
+.LogoWrapper {
+  margin: auto;
+  text-align: center;
+  padding: 30px 0;
+}

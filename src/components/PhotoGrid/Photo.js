@@ -1,15 +1,18 @@
 import React from 'react'
+import UnsplashLogo from './img/unspl-span.svg';
 
 export const GridPhoto = ( {photo} ) => {
     return (
         <div key={photo.id} className="PhotoContainer">
-            <img className="PhotoItem" src={photo.urls.regular} alt={photo.description} />
-            <div className="Photo">
-                <a href={photo.user.links.html} target="_blank" rel="noreferrer">
-                     {photo.user.name}
+            <div className="PhotoLinks">
+                <a 
+                    href={photo.user.links.html} 
+                    className="PhotoUnSplashLogo" 
+                    target="_blank" rel="noreferrer">
+                        <img className="PhotoLogo" src={UnsplashLogo} />
                 </a>
             </div>
-            <div>{photo.user.social.instagram_username}</div>
+            <img className="PhotoItem" src={photo.urls.regular} alt={photo.description} />
         </div>
     )
 }
