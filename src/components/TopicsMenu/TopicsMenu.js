@@ -7,9 +7,9 @@ export const TopicsMenu = (props) => {
   return (
     <div className="TopicsMenuList">
       <div className="TopicsMenuWrapper">
-        <a href="https://spandigital.com/" target="_blank">
+        <a href="https://spandigital.com/" rel="noreferrer" target="_blank">
             <div className="LogoWrapper">
-              <img className="SpanLogo" alt="Span Digital" src={SpanLogo} />
+              <img src={SpanLogo}  alt="Span Digital" className="SpanLogo" />
             </div>
         </a>
         {topics.length && topics.map((topic) => 

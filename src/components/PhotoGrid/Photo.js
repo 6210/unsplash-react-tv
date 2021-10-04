@@ -9,7 +9,7 @@ export const GridPhoto = ( {photo} ) => {
                     href={photo.user.links.html} 
                     className="PhotoUnSplashLogo" 
                     target="_blank" rel="noreferrer">
-                        <img className="PhotoLogo" src={UnsplashLogo} />
+                        <img className="PhotoLogo" alt="View Unsplash Link" src={UnsplashLogo} />
                 </a>
             </div>
             <img className="PhotoItem" src={photo.urls.regular} alt={photo.description} />
