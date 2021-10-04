@@ -1,3 +1,7 @@
 export const Loader = () => (
-    <p>Loading...</p>
+    <div className="LoaderWrapper">
+        <div className="LoaderContainer">
+            Loading...
+        </div>
+    </div>
 );

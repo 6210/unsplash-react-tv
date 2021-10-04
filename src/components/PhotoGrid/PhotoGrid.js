@@ -1,9 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { api } from '../../api/api';
-import { GridPhoto } from './GridPhoto';
+import { GridPhoto } from './Photo';
 
 export const PhotoGrid = ( props ) => {
-  const { slug, title, closeModal } = props;
+  const { slug, title, closeModal  } = props;
 
   const [photosData, setPhotosData] = useState({
     topicIdOrSlug: slug,
@@ -30,16 +30,28 @@ export const PhotoGrid = ( props ) => {
   }, [fetchPhotos, slug]);
 
   return (
-    <div className="grid-photo-wrapper">
-        <h3>{title}</h3>
 
-        {/* If open  */}
-        <button onClick={() => closeModal(true)}> Browse Topics </button>
-        {/* hide this */}
+    <div>
 
-        {photos.length && photos.map((photo) => 
-          <GridPhoto key={photo.id} photo={photo}/>
-        )}
+      <div className="offTopicVav">
+        <button 
+          className="triggerMenu"
+          onClick={() => closeModal(true)}>
+            Browse Topics
+        </button>
+        <div className="TopicTitle" onClick={() => closeModal(true)}>
+          <h3>{title}</h3>
+        </div>
+      </div>
+
+      <div className="PhotoGridWrapper">
+
+          <div className="PhotoWrapper">
+            {photos.length && photos.map((photo) => 
+                <GridPhoto key={photo.id} photo={photo}/>
+            )}
+          </div>
+      </div>
     </div>
   );
 };
