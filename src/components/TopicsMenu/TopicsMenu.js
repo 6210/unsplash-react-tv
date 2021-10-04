@@ -7,22 +7,18 @@ export const TopicsMenu = (props) => {
     <div className="TopicsMenuList">
       <div className="TopicsMenuWrapper">
         {topics.length && topics.map((topic) => 
-          <div className="TopicsMenuItem">
-            <div 
-                className="TopicsMenuListItem"
-                key={topic.id}
-                onClick={() => 
-                  onTopicSelected(topic)
-                }
-              > 
-              <div className="TopicsMenuDAlign">
-                    <div className="topicSelectImage" key={topic.id}>
-                       <div className="TopicsMenuDisplay">{topic.title}</div>
-                      <div className="MenuverOlay"></div>
-                    </div>
-                </div>
+          <div
+              key={topic.id} 
+              className="TopicsMenuItem"
+              onClick={() => 
+                onTopicSelected(topic)
+              }
+            > 
+            <div className="TopicsMenuDisplay">{topic.title}</div>
+            <div className="topicSelectImage">
+                <img src={topic.cover_photo.urls.thumb} alt={topic.cover_photo.alt_description} />
             </div>
-            </div>
+          </div>
         )}
       </div>
     </div>

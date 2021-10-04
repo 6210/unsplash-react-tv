@@ -1,7 +1,7 @@
 export const Loader = () => (
     <div className="LoaderWrapper">
         <div className="LoaderContainer">
-            Loading...
+            <div className="lds-facebook"><div></div><div></div><div></div></div>
         </div>
     </div>
 );

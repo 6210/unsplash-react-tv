@@ -1,0 +1,15 @@
+import React from 'react'
+
+export const TopicsOpenBtn = (props) => {
+    const { closeModal  } = props;
+
+    return (
+        <div className="offTopicVav">
+            <button 
+                className="triggerMenu"
+                onClick={() => closeModal(true)}>
+                Browse Topics
+            </button>
+        </div>
+    )
+}

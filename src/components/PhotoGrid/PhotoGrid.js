@@ -31,18 +31,10 @@ export const PhotoGrid = ( props ) => {
 
   return (
 
-    <div>
-
-      <div className="offTopicVav">
-        <button 
-          className="triggerMenu"
-          onClick={() => closeModal(true)}>
-            Browse Topics
-        </button>
+    <div className="TopicsPhotoList">
         <div className="TopicTitle" onClick={() => closeModal(true)}>
           <h3>{title}</h3>
         </div>
-      </div>
 
       <div className="PhotoGridWrapper">
 
