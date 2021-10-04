@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { TopicsMenu } from '../../components/TopicsMenu/TopicsMenu';
+import { TopicsOpenBtn } from '../../components/TopicsMenu/TopicsOpenBtn';
 import { PhotoGrid } from '../../components/PhotoGrid/PhotoGrid';
 import { Loader } from '../../components/Loader';
 import { api } from '../../api/api';
 import './Home.css';
 
-export const Home = () => {
+export const Home = (props) => {
 
   const [topicsData, setTopicsData] = useState({
     page: 1,
@@ -57,6 +58,11 @@ export const Home = () => {
             closeModal={setOpenNav}
             modalButton={setOpenNav}
             onTopicSelected={onTopicSelected} 
+          />
+        }
+        {openModal || 
+          <TopicsOpenBtn 
+            closeModal={setOpenNav}
           />
         }
         <PhotoGrid 
